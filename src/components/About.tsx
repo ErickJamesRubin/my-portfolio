@@ -1,5 +1,7 @@
 import { useScrollReveal } from './useScrollReveal'
 import './About.css'
+import profileImg from "../assets/profile.jpg"
+
 
 const facts = [
   { icon: '🎓', label: 'Education', value: 'BSIT — NBSC, Bukidnon' },
@@ -23,29 +25,7 @@ export default function About() {
           <div className="portrait-frame">
             <div className="portrait-inner">
               {/* Pirate silhouette SVG */}
-              <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" className="pirate-silhouette">
-                {/* Hat brim */}
-                <ellipse cx="100" cy="55" rx="65" ry="14" fill="var(--accent-tan)" opacity="0.9"/>
-                {/* Hat top */}
-                <path d="M52 55 Q58 20 100 14 Q142 20 148 55" fill="var(--accent-tan)" opacity="0.9"/>
-                {/* Hat band */}
-                <path d="M52 55 Q100 67 148 55" fill="none" stroke="var(--accent-red)" strokeWidth="6"/>
-                {/* Head */}
-                <ellipse cx="100" cy="100" rx="38" ry="42" fill="var(--text-secondary)" opacity="0.4"/>
-                {/* Eyes */}
-                <ellipse cx="88" cy="96" rx="5" ry="6" fill="var(--accent-gold)" opacity="0.9"/>
-                <ellipse cx="112" cy="96" rx="5" ry="6" fill="var(--accent-gold)" opacity="0.9"/>
-                {/* Smile */}
-                <path d="M88 112 Q100 122 112 112" fill="none" stroke="var(--accent-gold)" strokeWidth="2.5" strokeLinecap="round"/>
-                {/* Body */}
-                <path d="M68 140 Q60 170 55 210 L145 210 Q140 170 132 140 Q116 130 100 130 Q84 130 68 140Z" fill="var(--text-secondary)" opacity="0.3"/>
-                {/* Coat collar */}
-                <path d="M80 140 L100 160 L120 140" fill="none" stroke="var(--accent-red)" strokeWidth="3"/>
-                {/* Sash */}
-                <path d="M60 175 Q100 185 140 175" fill="none" stroke="var(--accent-red)" strokeWidth="5" opacity="0.7"/>
-                {/* Anchor tattoo */}
-                <text x="92" y="190" fontSize="16" fill="var(--accent-gold)" opacity="0.6" fontFamily="serif">⚓</text>
-              </svg>
+              <img src={profileImg} alt="Erick James Rubin" className="about-profile-photo" />
             </div>
             <div className="portrait-label">Captain Erick</div>
           </div>
