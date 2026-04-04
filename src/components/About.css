@@ -1,0 +1,150 @@
+.about-page { padding-top: 100px; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Portrait */
+.about-portrait { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.portrait-frame {
+  position: relative;
+  text-align: center;
+}
+
+.portrait-inner {
+  width: 220px;
+  height: 260px;
+  margin: 0 auto;
+  border: 2px solid var(--border-gold);
+  border-radius: 16px;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-gold), inset 0 0 40px rgba(243,156,18,0.05);
+}
+
+.portrait-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(243,156,18,0.08), transparent 70%);
+}
+
+/* Corner ornaments */
+.portrait-inner::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(243,156,18,0.15);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.pirate-silhouette {
+  width: 160px;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+  animation: float 5s ease-in-out infinite;
+}
+
+.portrait-label {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.1rem;
+  color: var(--accent-gold);
+  margin-top: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+/* Facts grid */
+.facts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.fact-item:hover { background: var(--bg-card-hover); }
+
+.fact-icon { font-size: 1.2rem; flex-shrink: 0; }
+.fact-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fact-value {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Bio */
+.bio-card { padding: 2rem; }
+
+.bio-heading {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.bio-card p {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+  line-height: 1.85;
+}
+
+.bio-card strong { color: var(--text-primary); }
+.bio-card em { color: var(--accent-tan); }
+
+.bio-highlight {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent-red);
+  background: rgba(192,57,43,0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.highlight-quote {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.bio-links { margin-top: 1.5rem; }
+
+.interest-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-portrait { flex-direction: column; align-items: center; }
+  .facts-grid { width: 100%; max-width: 400px; }
+}
