@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erick James Rubin — Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.5;
+      padding: 0;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 48px;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+    .name {
+      font-size: 26pt;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      color: #111;
+    }
+    .role {
+      font-size: 10pt;
+      color: #555;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 4px 0 8px;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      font-size: 9.5pt;
+      color: #333;
+    }
+    .contact-row a { color: #1a5276; text-decoration: none; }
+
+    /* Section */
+    section { margin-bottom: 18px; }
+    .section-title {
+      font-size: 10pt;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+    }
+
+    /* Entries */
+    .entry { margin-bottom: 12px; }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .entry-title { font-weight: bold; font-size: 10.5pt; }
+    .entry-date { font-size: 9pt; color: #555; white-space: nowrap; }
+    .entry-sub { font-size: 9.5pt; color: #555; font-style: italic; margin-bottom: 3px; }
+    .entry-desc { font-size: 9.5pt; color: #333; line-height: 1.55; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 16px;
+    }
+    .skill-group-title { font-weight: bold; font-size: 9pt; margin-bottom: 3px; }
+    .skill-list { font-size: 9pt; color: #444; line-height: 1.7; }
+
+    /* Interests */
+    .interests { font-size: 9.5pt; color: #333; line-height: 1.8; }
+
+    /* Print styles */
+    @media print {
+      body { print-color-adjust: exact; }
+      .page { padding: 20px 30px; }
+    }
+
+    /* Screen view styles */
+    @media screen {
+      body { background: #f0f0f0; }
+      .page {
+        background: #fff;
+        margin: 30px auto;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        min-height: 1100px;
+      }
+      .print-btn {
+        display: block;
+        text-align: center;
+        margin: 20px auto 0;
+        max-width: 800px;
+        padding: 0 48px 12px;
+      }
+      .print-btn button {
+        background: #1a5276;
+        color: #fff;
+        border: none;
+        padding: 10px 28px;
+        font-size: 11pt;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: Georgia, serif;
+        letter-spacing: 0.04em;
+      }
+      .print-btn button:hover { background: #154360; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-btn">
+    <button onclick="window.print()">🖨 Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <div class="name">Erick James Rubin</div>
+      <div class="role">Full-Stack Developer · IoT Engineer · BSIT Student</div>
+      <div class="contact-row">
+        <span>📍 Manolo Fortich, Bukidnon, Philippines</span>
+        <a href="https://github.com/ErickJamesRubin">⚓ github.com/ErickJamesRubin</a>
+        <span>✉ your.email@example.com</span>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor of Science in Information Technology</span>
+          <span class="entry-date">2022 – Present</span>
+        </div>
+        <div class="entry-sub">Northern Bukidnon State College (NBSC) · Manolo Fortich, Bukidnon</div>
+        <div class="entry-desc">
+          Specializing in full-stack web development, embedded systems (IoT), and enterprise software.
+          Active in academic projects spanning PHP systems, React dashboards, Arduino robotics, and ESP32 IoT solutions.
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <div class="section-title">Projects</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Traffic Light Dashboard — ESP32 &amp; Firebase</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Real-time web dashboard to control and simulate traffic light sequences via ESP32 microcontroller and Firebase Realtime Database. Features live state syncing and mobile-responsive controls.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">NBSC Anonymous Student Feedback System</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Multi-role PHP application (Admin, Staff, Student) with AES-256-CBC encryption, anonymous emoji reactions, manager review gating, off-hours access enforcement, and full Git workflow management.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Weather Station Dashboard — ESP32 &amp; Firebase</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Real-time temperature &amp; humidity monitoring dashboard using DHT11 sensor, Firebase Realtime Database, Chart.js visualization, and CSV export. Hosted on Firebase Hosting.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Line-Following Robotic Car — Arduino Uno</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Autonomous robot using IR sensors for line tracking, HC-SR04 ultrasonic sensor for obstacle avoidance, servo motor for steering, and L298N motor driver for propulsion.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Orbital Sentinel — Global Crisis Monitor</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Browser-based world map application (Leaflet.js) simulating real-time low-orbit surveillance with war zone overlays, typhoon tracking, earthquake events, live notification feed, and login system.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Multiple LED Control Dashboard — ESP32</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-desc">Firebase-powered web dashboard for remote real-time control of multiple LEDs via ESP32, with live state feedback and mobile-friendly UI.</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Pineapple Heritage Hotel Booking System</span>
+          <span class="entry-date">2023</span>
+        </div>
+        <div class="entry-desc">Full hotel reservation platform built in Java with MySQL database. Features room management, booking workflows, availability checking, customer records, and admin panel.</div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-title">Web Technologies</div>
+          <div class="skill-list">HTML · CSS · JavaScript · TypeScript · React · PHP · MySQL</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Hardware &amp; Backend</div>
+          <div class="skill-list">Arduino (C++) · ESP32 · Firebase · Java · Node.js · Python</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Tools &amp; Platforms</div>
+          <div class="skill-list">Git · VS Code · Arduino IDE · MySQL Workbench · Vite · Postman · Figma</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section>
+      <div class="section-title">Interests</div>
+      <div class="interests">
+        Full-Stack Web Development · IoT &amp; Embedded Systems · Robotics &amp; Maker Culture ·
+        Open-Source Contribution · Cloud Technologies · GitHub Portfolio Development
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
