@@ -1,0 +1,162 @@
+.skills-page { padding-top: 100px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.skills-column {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-column::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-gold), var(--accent-red));
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.column-icon { font-size: 1.5rem; }
+
+.column-header h3 {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.04em;
+}
+
+.skills-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Skill bar item */
+.skill-item { position: relative; }
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-icon { font-size: 1rem; }
+
+.skill-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+
+.skill-pct {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Track */
+.skill-track {
+  position: relative;
+  height: 10px;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  overflow: visible;
+}
+
+/* Gold fill */
+.skill-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-gold) 60%, var(--accent-gold-light) 100%);
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 8px rgba(243,156,18,0.4);
+}
+
+/* Shimmer on fill */
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Anchor marker */
+.skill-ship {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  transition: left 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 4px rgba(243,156,18,0.8));
+  pointer-events: none;
+}
+
+/* Tools */
+.tools-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.tools-title {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.6rem;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.tool-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  padding: 0.45rem 1rem;
+  background: rgba(243,156,18,0.08);
+  color: var(--accent-tan);
+  border: 1px solid rgba(243,156,18,0.25);
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.tool-badge:hover {
+  background: rgba(243,156,18,0.18);
+  color: var(--accent-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(243,156,18,0.2);
+}
+
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
