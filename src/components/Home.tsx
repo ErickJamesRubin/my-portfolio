@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
+import profileImg from "../assets/profile.jpg";
+
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -55,6 +57,11 @@ export default function Home() {
             <span className="hero-name">Erick James</span>
             <span className="hero-surname">Rubin</span>
           </h1>
+
+          {/* Add this where you want the photo to appear */}
+          <div className="hero-profile">
+          <img src={profileImg} alt="Erick James Rubin" className="profile-photo" />
+          </div>
 
           <div className="hero-role">
             <span className="role-text">Full-Stack Developer</span>

@@ -27,7 +27,7 @@
   background: var(--bg-card);
   border-radius: 16px;
   border: 1px solid var(--cert-color, var(--accent-gold));
-  border-opacity: 0.3;
+  border-spacing: 0.3;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-color: color-mix(in srgb, var(--cert-color, var(--accent-gold)) 40%, transparent);
