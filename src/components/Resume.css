@@ -1,207 +1,172 @@
-.resume-page { padding-top: 100px; }
-
 .resume-download-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  padding: 1rem 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 10px;
-  margin-bottom: 2.5rem;
-  font-family: 'Crimson Text', serif;
-  font-style: italic;
-  font-size: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.resume-download-bar span {
   color: var(--text-secondary);
+  font-size: 0.82rem;
 }
 
-/* Resume document */
 .resume-doc {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 16px;
-  padding: clamp(1.5rem, 5vw, 3rem);
-  position: relative;
-  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 4vw, 3rem);
 }
 
-/* Parchment corner ornaments */
-.resume-doc::before,
-.resume-doc::after {
-  content: '☠';
-  position: absolute;
-  font-size: 1.5rem;
-  color: var(--accent-gold);
-  opacity: 0.1;
-}
-.resume-doc::before { top: 16px; left: 20px; }
-.resume-doc::after { bottom: 16px; right: 20px; transform: rotate(180deg); }
-
-/* Top gold stripe */
-.resume-doc > .r-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-red), var(--accent-gold), var(--accent-red));
-}
-
-/* Header */
 .r-header {
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  position: relative;
+  align-items: center;
+  gap: 1.4rem;
 }
 
 .r-logo-mark {
-  font-size: 3rem;
-  color: var(--accent-gold);
-  filter: drop-shadow(0 0 10px rgba(243,156,18,0.5));
-  flex-shrink: 0;
-  line-height: 1;
-  margin-top: 0.25rem;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.88rem;
+  letter-spacing: -0.03em;
 }
 
 .r-name {
-  font-family: 'Pirata One', cursive;
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
-  color: var(--accent-gold);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
-  text-shadow: 0 0 20px rgba(243,156,18,0.3);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--text-heading);
+  line-height: 1;
+  margin-bottom: 0.52rem;
 }
 
 .r-role {
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
+  font-family: 'Fira Code', monospace;
   color: var(--text-secondary);
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.15em;
 }
 
 .r-contact-row {
+  margin-top: 0.5rem;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
   flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
   font-family: 'Fira Code', monospace;
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
 }
 
 .r-contact-row a {
-  color: var(--accent-gold);
+  color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.2s;
 }
-.r-contact-row a:hover { opacity: 0.8; }
 
-/* Divider */
 .r-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
-  margin: 1.75rem 0;
+  background: var(--border-color);
+  margin: 1.5rem 0;
 }
 
-/* Sections */
-.r-section { margin-bottom: 0.5rem; }
+.r-section {
+  margin-bottom: 1.4rem;
+}
 
 .r-section-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  letter-spacing: 0.06em;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--text-heading);
 }
 
 .r-entry {
-  margin-bottom: 1.25rem;
-  padding-left: 1rem;
-  border-left: 2px solid rgba(243,156,18,0.25);
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
 }
 
 .r-entry-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.25rem;
+  align-items: baseline;
 }
 
 .r-entry-title {
-  font-family: 'Cinzel', serif;
+  color: var(--text-heading);
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: 0.03em;
+  font-weight: 800;
 }
 
 .r-entry-date {
   font-family: 'Fira Code', monospace;
-  font-size: 0.72rem;
-  color: var(--accent-tan);
-  flex-shrink: 0;
+  font-size: 0.68rem;
+  color: var(--accent);
 }
 
 .r-entry-sub {
-  font-family: 'Crimson Text', serif;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  margin: 0.2rem 0 0.42rem;
+  color: var(--text-secondary);
 }
 
 .r-entry-desc {
-  font-family: 'Crimson Text', serif;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
+  line-height: 1.72;
   color: var(--text-secondary);
-  line-height: 1.7;
 }
 
-/* Skills grid */
 .r-skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 1rem;
 }
 
 .r-skill-group-title {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent-tan);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.35rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
 }
 
 .r-skill-list {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  line-height: 1.8;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
 }
 
 .r-interests {
-  font-family: 'Crimson Text', serif;
-  font-size: 1rem;
+  font-size: 0.81rem;
   color: var(--text-secondary);
-  font-style: italic;
-  line-height: 1.9;
+  line-height: 1.82;
 }
 
-@media (max-width: 600px) {
-  .resume-download-bar { flex-direction: column; align-items: flex-start; }
-  .r-header { flex-direction: column; gap: 0.75rem; }
-  .r-logo-mark { font-size: 2rem; }
-  .r-entry-header { flex-direction: column; gap: 0.1rem; }
+@media (max-width: 700px) {
+  .r-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .r-skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-download-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

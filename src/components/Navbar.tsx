@@ -34,17 +34,15 @@ export default function Navbar() {
       <div className="nav-inner">
         {/* Logo + Name */}
         <NavLink to="/" className="nav-brand">
-          <svg className="nav-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="28" r="14" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-            <ellipse cx="20" cy="27" rx="3.5" ry="4.5" fill="currentColor" opacity="0.9"/>
-            <ellipse cx="28" cy="27" rx="3.5" ry="4.5" fill="currentColor" opacity="0.9"/>
-            <path d="M20 33 L22 37 L24 33 L26 37 L28 33" fill="none" stroke="currentColor" strokeWidth="1.2"/>
-            <rect x="19" y="37" width="3" height="4" rx="1" fill="currentColor"/>
-            <rect x="26" y="37" width="3" height="4" rx="1" fill="currentColor"/>
-            <ellipse cx="24" cy="15" rx="20" ry="5.5" fill="#d4a853" stroke="#8B6914" strokeWidth="1"/>
-            <path d="M10 15 Q13 5 24 3 Q35 5 38 15" fill="#d4a853" stroke="#8B6914" strokeWidth="1"/>
-            <path d="M10 15 Q24 19 38 15" fill="none" stroke="#c0392b" strokeWidth="2.5"/>
-          </svg>
+          <span className="nav-logo-square" aria-hidden="true">
+            <svg className="nav-logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="36" height="36" rx="8" className="logo-frame" />
+              <path className="logo-code-left" d="M14 12 L9 20 L14 28" />
+              <path className="logo-code-right" d="M26 12 L31 20 L26 28" />
+              <path className="logo-core" d="M17 28 L23 12" />
+              <circle className="logo-dot" cx="20" cy="20" r="2.4" />
+            </svg>
+          </span>
           <div className="nav-brand-text">
             <span className="nav-name">Erick James Rubin</span>
             <span className="nav-tagline">Full-Stack & IoT Developer</span>

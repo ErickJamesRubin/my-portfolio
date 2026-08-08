@@ -1,13 +1,12 @@
 import { useScrollReveal } from './useScrollReveal'
 import './About.css'
-import profileImg from "../assets/profile.jpg"
-
+import profileImg from '../assets/profile.jpg'
 
 const facts = [
   { icon: '🎓', label: 'Education', value: 'BSIT — NBSC, Bukidnon' },
   { icon: '📍', label: 'Location', value: 'Manolo Fortich, Philippines' },
-  { icon: '⚓', label: 'Focus', value: 'Full-Stack & IoT Systems' },
-  { icon: '🐙', label: 'GitHub', value: 'ErickJamesRubin' },
+  { icon: '🎯', label: 'Focus', value: 'Full-Stack & IoT Systems' },
+  { icon: '☰', label: 'GitHub', value: 'ErickJamesRubin' },
 ]
 
 export default function About() {
@@ -15,23 +14,21 @@ export default function About() {
 
   return (
     <main className="section about-page" ref={ref}>
-      <h2 className="section-title fade-in">About the Pirate</h2>
-      <p className="section-subtitle fade-in">The story so far…</p>
+      <h2 className="section-title fade-in">About Me</h2>
+      <p className="section-subtitle fade-in">Building systems, learning continuously, shipping ideas</p>
       <div className="section-divider fade-in" />
 
       <div className="about-grid">
-        {/* Avatar / Portrait */}
         <div className="about-portrait fade-in">
           <div className="portrait-frame">
             <div className="portrait-inner">
-              {/* Pirate silhouette SVG */}
               <img src={profileImg} alt="Erick James Rubin" className="about-profile-photo" />
             </div>
-            <div className="portrait-label">Captain Erick</div>
+            <div className="portrait-label">Erick James Rubin</div>
           </div>
-          {/* Quick facts below portrait on mobile too */}
+
           <div className="facts-grid">
-            {facts.map(f => (
+            {facts.map((f) => (
               <div key={f.label} className="fact-item">
                 <span className="fact-icon">{f.icon}</span>
                 <div>
@@ -43,51 +40,51 @@ export default function About() {
           </div>
         </div>
 
-        {/* Bio */}
         <div className="about-bio fade-in">
-          <div className="parchment-card bio-card corner-decor">
-            <h3 className="bio-heading">The Captain's Log</h3>
-            <div className="rope-divider" />
+          <article className="bio-card">
+            <h3 className="bio-heading">Developer Snapshot</h3>
+            <div className="section-rule" />
             <p>
-              Ahoy! I'm <strong>Erick James Rubin</strong>, a passionate BSIT student at{' '}
-              <strong>Northern Bukidnon State College</strong> in the Philippines.
-              I navigate the digital seas as both a full-stack web developer and an IoT systems
-              builder, crafting adventures that blend hardware and software.
+              I’m <strong>Erick James Rubin</strong>, a BSIT student at <strong>Northern Bukidnon State College</strong>
+              focused on building practical software and connected system experiences.
             </p>
             <p>
-              My crew and I have sailed through <em>PHP systems, React dashboards, Arduino robots,
-              and ESP32 IoT contraptions</em>. Whether it's wiring up sensors or architecting
-              encrypted feedback systems, I embrace every challenge as a new island to conquer.
+              My work spans <strong>React and TypeScript interfaces</strong>, <strong>PHP and MySQL solutions</strong>,
+              and <strong>ESP32 / Arduino based IoT projects</strong>. I approach development with a product mindset:
+              clarify the problem, design the flow, implement the interface, and keep the system maintainable.
             </p>
             <p>
-              When I'm not coding, you'll find me tinkering with microcontrollers, exploring
-              maker culture, or polishing my GitHub ship. My dream? To become a world-class
-              developer — the Pirate King of the tech ocean.
+              Outside coursework, I work on projects that combine real-time data, dashboards, hardware integration,
+              and user-centered design. I’m especially interested in learning the systems that sit between users,
+              APIs, data, and connected devices.
             </p>
 
             <div className="bio-highlight">
-              <span className="highlight-quote">"The sea is calling, and I must go — to ship this feature before deadline."</span>
+              <span className="highlight-quote">
+                “I turn technical requirements into polished interfaces and reliable solutions.”
+              </span>
             </div>
 
             <div className="bio-links">
-              <a
-                href="https://github.com/ErickJamesRubin"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-secondary"
-              >
-                ⚓ GitHub Profile
+              <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="btn-secondary">
+                GitHub Profile
               </a>
             </div>
-          </div>
+          </article>
 
-          {/* Interest Tags */}
           <div className="interest-cloud fade-in">
             {[
-              'Full-Stack Development', 'IoT Systems', 'Arduino & ESP32',
-              'Firebase', 'React', 'PHP & MySQL', 'Robotics',
-              'GitHub', 'Embedded Systems', 'UI/UX Design'
-            ].map(t => (
+              'Full-Stack Development',
+              'IoT Systems',
+              'Arduino & ESP32',
+              'Firebase',
+              'React',
+              'PHP & MySQL',
+              'Robotics',
+              'GitHub',
+              'Embedded Systems',
+              'UI/UX Design',
+            ].map((t) => (
               <span key={t} className="tag">{t}</span>
             ))}
           </div>

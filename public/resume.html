@@ -8,63 +8,70 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Georgia', serif;
+      font-family: Inter, Arial, sans-serif;
       font-size: 11pt;
-      color: #1a1a1a;
-      background: #fff;
-      line-height: 1.5;
+      color: #1c2128;
+      background: #eef4f8;
+      line-height: 1.58;
       padding: 0;
     }
 
     .page {
-      max-width: 800px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 40px 48px;
+      background: #ffffff;
     }
 
-    /* Header */
     .header {
-      border-bottom: 2px solid #1a1a1a;
+      border-bottom: 1px solid #d0d7de;
       padding-bottom: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
     }
+
     .name {
-      font-size: 26pt;
-      font-weight: bold;
-      letter-spacing: 0.04em;
-      color: #111;
+      font-size: 28pt;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1c2128;
     }
+
     .role {
       font-size: 10pt;
-      color: #555;
+      color: #57606a;
+      font-family: 'Fira Code', 'SFMono-Regular', Consolas, monospace;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 4px 0 8px;
+      margin: 4px 0 10px;
     }
+
     .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px 18px;
+      gap: 6px 20px;
       font-size: 9.5pt;
-      color: #333;
+      color: #57606a;
     }
-    .contact-row a { color: #1a5276; text-decoration: none; }
 
-    /* Section */
-    section { margin-bottom: 18px; }
+    .contact-row a {
+      color: #0969da;
+      text-decoration: none;
+    }
+
+    section { margin-bottom: 22px; }
+
     .section-title {
       font-size: 10pt;
-      font-weight: bold;
-      letter-spacing: 0.1em;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #111;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 3px;
-      margin-bottom: 10px;
+      color: #1c2128;
+      border-bottom: 1px solid #d0d7de;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
     }
 
-    /* Entries */
-    .entry { margin-bottom: 12px; }
+    .entry { margin-bottom: 14px; }
+
     .entry-header {
       display: flex;
       justify-content: space-between;
@@ -72,79 +79,116 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-    .entry-title { font-weight: bold; font-size: 10.5pt; }
-    .entry-date { font-size: 9pt; color: #555; white-space: nowrap; }
-    .entry-sub { font-size: 9.5pt; color: #555; font-style: italic; margin-bottom: 3px; }
-    .entry-desc { font-size: 9.5pt; color: #333; line-height: 1.55; }
 
-    /* Skills */
+    .entry-title {
+      font-weight: 800;
+      font-size: 10.5pt;
+      color: #1c2128;
+    }
+
+    .entry-date {
+      font-size: 9pt;
+      color: #0969da;
+      white-space: nowrap;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .entry-sub {
+      font-size: 9.5pt;
+      color: #57606a;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    .entry-desc {
+      font-size: 9.5pt;
+      color: #57606a;
+      line-height: 1.55;
+    }
+
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px 16px;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 10px 20px;
     }
-    .skill-group-title { font-weight: bold; font-size: 9pt; margin-bottom: 3px; }
-    .skill-list { font-size: 9pt; color: #444; line-height: 1.7; }
 
-    /* Interests */
-    .interests { font-size: 9.5pt; color: #333; line-height: 1.8; }
+    .skill-group-title {
+      font-weight: 800;
+      font-size: 9pt;
+      margin-bottom: 3px;
+      color: #0969da;
+      font-family: 'Fira Code', monospace;
+    }
 
-    /* Print styles */
+    .skill-list {
+      font-size: 9pt;
+      color: #57606a;
+      line-height: 1.7;
+    }
+
+    .interests {
+      font-size: 9.5pt;
+      color: #57606a;
+      line-height: 1.8;
+    }
+
     @media print {
-      body { print-color-adjust: exact; }
-      .page { padding: 20px 30px; }
+      body { background: #ffffff; print-color-adjust: exact; }
+      .page { padding: 20px 30px; box-shadow: none; }
+      .print-btn { display: none; }
     }
 
-    /* Screen view styles */
     @media screen {
-      body { background: #f0f0f0; }
+      body { background: #f6f8fa; }
+
       .page {
         background: #fff;
         margin: 30px auto;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 12px 24px rgba(28, 33, 40, 0.08);
         min-height: 1100px;
       }
+
       .print-btn {
         display: block;
         text-align: center;
         margin: 20px auto 0;
-        max-width: 800px;
+        max-width: 880px;
         padding: 0 48px 12px;
       }
+
       .print-btn button {
-        background: #1a5276;
+        background: #0969da;
         color: #fff;
         border: none;
         padding: 10px 28px;
         font-size: 11pt;
         border-radius: 6px;
         cursor: pointer;
-        font-family: Georgia, serif;
+        font-family: Inter, Arial, sans-serif;
         letter-spacing: 0.04em;
       }
-      .print-btn button:hover { background: #154360; }
+
+      .print-btn button:hover { background: #0550ae; }
     }
   </style>
 </head>
 <body>
 
   <div class="print-btn">
-    <button onclick="window.print()">🖨 Print / Save as PDF</button>
+    <button onclick="window.print()">Print / Save as PDF</button>
   </div>
 
   <div class="page">
-    <!-- Header -->
     <div class="header">
       <div class="name">Erick James Rubin</div>
       <div class="role">Full-Stack Developer · IoT Engineer · BSIT Student</div>
       <div class="contact-row">
         <span>📍 Manolo Fortich, Bukidnon, Philippines</span>
-        <a href="https://github.com/ErickJamesRubin">⚓ github.com/ErickJamesRubin</a>
+        <a href="https://github.com/ErickJamesRubin">github.com/ErickJamesRubin</a>
         <span>✉ your.email@example.com</span>
       </div>
     </div>
 
-    <!-- Education -->
     <section>
       <div class="section-title">Education</div>
       <div class="entry">
@@ -160,7 +204,6 @@
       </div>
     </section>
 
-    <!-- Projects -->
     <section>
       <div class="section-title">Projects</div>
 
@@ -177,7 +220,7 @@
           <span class="entry-title">NBSC Anonymous Student Feedback System</span>
           <span class="entry-date">2024</span>
         </div>
-        <div class="entry-desc">Multi-role PHP application (Admin, Staff, Student) with AES-256-CBC encryption, anonymous emoji reactions, manager review gating, off-hours access enforcement, and full Git workflow management.</div>
+        <div class="entry-desc">Multi-role PHP application (Admin, Staff, Student) with AES-256-CBC encryption, anonymous reactions, manager review gating, off-hours access enforcement, and Git-backed delivery workflow.</div>
       </div>
 
       <div class="entry">
@@ -185,7 +228,7 @@
           <span class="entry-title">Weather Station Dashboard — ESP32 &amp; Firebase</span>
           <span class="entry-date">2024</span>
         </div>
-        <div class="entry-desc">Real-time temperature &amp; humidity monitoring dashboard using DHT11 sensor, Firebase Realtime Database, Chart.js visualization, and CSV export. Hosted on Firebase Hosting.</div>
+        <div class="entry-desc">Real-time temperature &amp; humidity monitoring dashboard using DHT11 sensor, Firebase Realtime Database, Chart.js visualization, and CSV export.</div>
       </div>
 
       <div class="entry">
@@ -193,7 +236,7 @@
           <span class="entry-title">Line-Following Robotic Car — Arduino Uno</span>
           <span class="entry-date">2024</span>
         </div>
-        <div class="entry-desc">Autonomous robot using IR sensors for line tracking, HC-SR04 ultrasonic sensor for obstacle avoidance, servo motor for steering, and L298N motor driver for propulsion.</div>
+        <div class="entry-desc">Autonomous robot using IR sensors for line tracking, HC-SR04 ultrasonic sensor for obstacle avoidance, servo motor steering, and L298N motor driver support.</div>
       </div>
 
       <div class="entry">
@@ -201,7 +244,7 @@
           <span class="entry-title">Orbital Sentinel — Global Crisis Monitor</span>
           <span class="entry-date">2024</span>
         </div>
-        <div class="entry-desc">Browser-based world map application (Leaflet.js) simulating real-time low-orbit surveillance with war zone overlays, typhoon tracking, earthquake events, live notification feed, and login system.</div>
+        <div class="entry-desc">Browser-based world map application (Leaflet.js) simulating real-time crisis monitoring with war zone overlays, typhoon tracking, and event feed UX.</div>
       </div>
 
       <div class="entry">
@@ -209,7 +252,7 @@
           <span class="entry-title">Multiple LED Control Dashboard — ESP32</span>
           <span class="entry-date">2024</span>
         </div>
-        <div class="entry-desc">Firebase-powered web dashboard for remote real-time control of multiple LEDs via ESP32, with live state feedback and mobile-friendly UI.</div>
+        <div class="entry-desc">Firebase-powered web dashboard for remote real-time control of multiple LEDs via ESP32, with live state feedback and responsive UI.</div>
       </div>
 
       <div class="entry">
@@ -221,7 +264,6 @@
       </div>
     </section>
 
-    <!-- Technical Skills -->
     <section>
       <div class="section-title">Technical Skills</div>
       <div class="skills-grid">
@@ -240,7 +282,6 @@
       </div>
     </section>
 
-    <!-- Interests -->
     <section>
       <div class="section-title">Interests</div>
       <div class="interests">
