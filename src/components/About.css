@@ -9,7 +9,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 5px;
+  filter: saturate(.88) contrast(1.04);
 }
 
 .about-portrait {
@@ -24,15 +25,18 @@
 }
 
 .portrait-inner {
+  position: relative;
   width: min(100%, 250px);
-  height: 280px;
+  aspect-ratio: 1;
   margin: 0 auto;
+  padding: 8px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--border-color);
-  background: var(--bg-elevated);
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--accent);
+  background: linear-gradient(135deg, var(--accent-two), var(--accent) 46%, var(--bg-elevated) 47%, var(--accent-strong));
+  box-shadow: var(--shadow-card), 0 0 0 7px var(--accent-soft);
 }
+
 
 .portrait-label {
   margin-top: 0.9rem;

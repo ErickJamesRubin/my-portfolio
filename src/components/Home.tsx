@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import profileImg from '../assets/profile.jpg'
 import './Home.css'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
     <div className="home-page">
       <section className="hero" ref={heroRef}>
         <div className="hero-copy">
+          <p className="hero-kicker">PORTFOLIO · 2026</p>
           <h1 className="hero-title">
             <span className="hero-name">Erick James</span>
             <span className="hero-surname">Rubin</span>
@@ -23,7 +25,7 @@ export default function Home() {
 
           <div className="hero-role">
             <span className="role-text">Full-Stack Developer</span>
-            <span className="role-divider">//</span>
+            <span className="role-divider">•</span>
             <span className="role-text">IoT Engineer</span>
           </div>
 
@@ -49,29 +51,19 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="hero-code-panel">
-          <div className="code-header">
-            <span className="traffic-lights">
-              <span />
-              <span />
-              <span />
-            </span>
-            <span className="file-name">developer.ts</span>
+        <aside className="hero-visual" aria-label="Portrait of Erick James Rubin">
+          <div className="portrait-orbit orbit-one" />
+          <div className="portrait-orbit orbit-two" />
+          <div className="hero-portrait-frame">
+            <div className="hero-portrait-inner">
+              <img src={profileImg} alt="Erick James Rubin" className="hero-profile-photo" />
+            </div>
+            <div className="portrait-caption">
+              <span>ERICK JAMES RUBIN</span>
+              <small>Developer portfolio</small>
+            </div>
           </div>
-          <pre className="code-block">
-            <code>{`const engineer = {
-  name: 'Erick James Rubin',
-  focus: ['web', 'iot', 'backend'],
-  status: 'open_to_work'
-}
-
-const build = async () => {
-  return await shipSolutions({
-    stack: ['React', 'TypeScript', 'PHP', 'ESP32'],
-    quality: 'high'
-  })
-}`}</code>
-          </pre>
+          <div className="availability-note"><span /> Available for internships & freelance work</div>
         </aside>
       </section>
 
