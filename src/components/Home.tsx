@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import profileImg from '../assets/profile-new.jpg'
+import IdBadge from './IdBadge'
 import './Home.css'
 
 const roles = ['Web Developer', 'IoT Engineer', 'Full-Stack Developer']
@@ -63,30 +63,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Right: ID badge card */}
-      <div className="home-badge-wrap" aria-label="ID badge portrait">
-        <div className="badge-string-wrap">
-          <div className="badge-clip" />
-          <div className="badge-string" />
-        </div>
-        <div className="id-badge">
-          <div className="badge-header">
-            <span className="badge-role-title">DEVELOPER</span>
-            <span className="badge-school">BSIT · NBSC</span>
-          </div>
-          <div className="badge-photo-frame">
-            <img src={profileImg} alt="Erick James Rubin" className="badge-photo" />
-          </div>
-          <div className="badge-info">
-            <div className="badge-name">ERICK JAMES RUBIN</div>
-            <div className="badge-sub">Full-Stack &amp; IoT</div>
-          </div>
-          <div className="badge-footer">
-            <span className="badge-tag">PORTFOLIO</span>
-            <span className="badge-year">2026</span>
-          </div>
-        </div>
-      </div>
+      {/* Right: hero visual */}
+      <IdBadge />
     </div>
   )
 }

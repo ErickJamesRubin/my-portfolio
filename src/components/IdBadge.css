@@ -1,0 +1,532 @@
+/* ── Hero Visual / ID Badge Stage ── */
+.hero-visual,
+.id-badge-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.id-badge-scaler {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: visible;
+  transform-origin: top center;
+}
+
+/* ── Pendulum Container ── */
+.id-badge-pendulum {
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
+}
+
+.id-badge-pendulum.is-dragging,
+.id-badge-pendulum:active {
+  cursor: grabbing;
+}
+
+/* ── Lanyard Strap (Starts at top of page, y = 0, width 44px) ── */
+.badge-strap {
+  width: 44px;
+  height: 206px;
+  margin-top: 0;
+  background: #0d121f;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.badge-strap-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.strap-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+}
+
+.strap-sep {
+  font-size: 0.5rem;
+  color: var(--accent, #2f6bff);
+}
+
+/* ── Metal Hardware (Clip & Ring) ── */
+.badge-hardware {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
+}
+
+.badge-clip {
+  width: 40px;
+  height: 16px;
+  background: linear-gradient(180deg, #949db0 0%, #4a5364 50%, #7d889d 100%);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-clip-groove {
+  width: 24px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 1px;
+}
+
+.badge-ring {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid #828c9f;
+  background: transparent;
+  margin-top: -3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Badge Card Container (Fixed 305x455px, rounded 16px) ── */
+.id-badge-card {
+  width: 305px;
+  height: 455px;
+  position: relative;
+  margin-top: -6px;
+  box-sizing: border-box;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  will-change: transform, box-shadow;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55), 0 3px 8px rgba(0, 0, 0, 0.35);
+  transform-style: preserve-3d;
+  outline: none;
+}
+
+.id-badge-card:focus-visible {
+  outline: 2px solid var(--accent, #2f6bff);
+  outline-offset: 4px;
+}
+
+/* ── Flip Inner Wrapper (Dedicated to 180deg flip) ── */
+.badge-flip-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+/* ── Front & Back Faces ── */
+.badge-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  background: linear-gradient(168deg, #fdfbf4 0%, #f6f2e4 100%);
+  border: 3px solid #141926;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-face-front {
+  transform: rotateY(0deg);
+  padding: 10px 14px 10px;
+}
+
+.badge-face-back {
+  transform: rotateY(180deg);
+  padding: 10px 12px;
+}
+
+/* ── Punched Slot ── */
+.badge-punched-slot {
+  width: 42px;
+  height: 8px;
+  border-radius: 4px;
+  background: #090d16;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0 auto 6px;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+/* ── Glossy Highlight Overlay ── */
+.badge-gloss-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+/* ── Front Badge Content Structure ── */
+.badge-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.badge-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.badge-tag-junior {
+  background: rgba(47, 107, 255, 0.12);
+  color: var(--accent, #2f6bff);
+  border: 1.5px solid rgba(47, 107, 255, 0.35);
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 1px 6px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.badge-school-meta {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.58rem;
+  color: rgba(20, 25, 38, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badge-title-dev {
+  font-size: 1.45rem;
+  font-weight: 950;
+  color: #121725;
+  letter-spacing: 0.05em;
+  margin: 0 0 6px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+/* ── Photo Frame (About 85% width = 260px, 50% height = 228px) ── */
+.badge-photo-frame {
+  width: 260px;
+  height: 228px;
+  margin: 0 auto 8px;
+  border-radius: 9px;
+  border: 2px solid #141926;
+  background: #0c111d;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.badge-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Name Plate ── */
+.badge-nameplate {
+  background: #ffffff;
+  border: 1.5px solid #ded9cb;
+  border-radius: 6px;
+  padding: 4px 8px;
+  margin: 0 0 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.badge-nameplate-text {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #121725;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.badge-nameplate-role {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.55rem;
+  color: var(--accent, #2f6bff);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 1px;
+}
+
+/* ── Bottom Bar with PORTFOLIO ── */
+.badge-bottom-bar {
+  margin-top: auto;
+  background: #121725;
+  border-radius: 6px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badge-bar-portfolio {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent, #2f6bff);
+  letter-spacing: 0.12em;
+}
+
+.badge-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-barcode {
+  font-family: monospace;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.06em;
+}
+
+.badge-bar-year {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+}
+
+/* ── Back Face Structure & Details ── */
+.badge-back-inner-frame {
+  flex: 1;
+  border: 1px solid rgba(20, 25, 38, 0.4);
+  border-radius: 10px;
+  padding: 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.badge-back-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.badge-back-scan-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge-back-scan-title {
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: #121725;
+  letter-spacing: 0.06em;
+  transform: rotate(-6deg);
+  transform-origin: left bottom;
+  display: inline-block;
+  line-height: 1;
+}
+
+.badge-back-stripes {
+  width: 76px;
+  height: 5px;
+  background: repeating-linear-gradient(-45deg, #141926, #141926 3px, transparent 3px, transparent 6px);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+.badge-back-nbsc {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #121725;
+  letter-spacing: 0.1em;
+}
+
+.badge-back-mid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  margin: 4px 0;
+}
+
+.badge-back-panel {
+  flex: 1;
+  background: #0f1526;
+  border-radius: 10px;
+  padding: 8px 6px 10px;
+  border: 1px solid rgba(47, 107, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-back-panel-title {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.badge-back-panel-sub {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--accent, #2f6bff);
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin: 1px 0 6px;
+}
+
+.badge-back-qr-box {
+  background: #ffffff;
+  border-radius: 7px;
+  padding: 5px;
+  width: 125px;
+  height: 125px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.badge-back-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.badge-back-vtext-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+.badge-back-vtext {
+  writing-mode: vertical-rl;
+  font-size: 0.58rem;
+  font-weight: 900;
+  color: #121725;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.badge-back-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.badge-back-name-label {
+  background: #0f1526;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 4px 6px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.badge-back-role-line-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.badge-back-role-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(18, 23, 37, 0.35);
+}
+
+.badge-back-role-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--accent, #2f6bff);
+  white-space: nowrap;
+}
+
+/* ── Responsive & Reduced Motion ── */
+@media (max-width: 900px) {
+  .hero-visual,
+  .id-badge-stage {
+    align-self: center;
+    width: 100%;
+    min-width: unset;
+    min-height: 480px;
+    margin: 20px auto 0;
+    overflow: visible;
+  }
+
+  .id-badge-scaler {
+    transform: scale(0.85);
+    transform-origin: top center;
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .id-badge-pendulum {
+    transition: none !important;
+  }
+  .badge-flip-wrapper {
+    transition: none !important;
+  }
+}
