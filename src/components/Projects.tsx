@@ -1,127 +1,174 @@
 import { useState } from 'react'
-import { useScrollReveal } from './useScrollReveal'
 import './Projects.css'
 
-type Category = 'All' | 'Web' | 'IoT' | 'Java'
+type Tab = 'Projects' | 'Certificates' | 'Achievements' | 'Tech Stack'
+const TABS: Tab[] = ['Projects', 'Certificates', 'Achievements', 'Tech Stack']
 
 interface Project {
-  title: string
-  desc: string
-  tags: string[]
-  category: Category[]
-  icon: string
-  featured?: boolean
+  title: string; desc: string; tags: string[]; icon: string; featured?: boolean
 }
 
 const projects: Project[] = [
   {
-    title: 'H₂KNOW: Design and Development of an IoT-Enabled Wireless Sensor Network-Based River Catchment Water Monitoring and Analytics System',
-    desc: 'Capstone project that monitors river water quality using IoT wireless sensors and presents the data through an analytics dashboard.',
+    title: 'H₂KNOW: IoT River Catchment Water Monitoring & Analytics System',
+    desc: 'Capstone project monitoring river water quality using IoT wireless sensors with an analytics dashboard.',
     tags: ['IoT', 'Wireless Sensor Network', 'Water Monitoring', 'Analytics'],
-    category: ['IoT', 'Web'],
-    icon: '💧',
-    featured: true,
+    icon: '💧', featured: true,
   },
   {
     title: 'Traffic Light Dashboard',
-    desc: 'Web-based dashboard to simulate and control traffic light sequences in real time using ESP32 and Firebase Realtime Database. Features live state syncing and responsive controls.',
+    desc: 'Web-based dashboard to simulate and control traffic light sequences in real time using ESP32 and Firebase.',
     tags: ['ESP32', 'Firebase', 'JavaScript', 'HTML/CSS'],
-    category: ['IoT', 'Web'],
     icon: '🚦',
   },
   {
     title: 'NBSC Anonymous Feedback System',
-    desc: 'A multi-role PHP web application for students, staff, and admins. Features AES-256-CBC encryption, anonymous reactions, role-based workflows, review gating, and secure access rules.',
-    tags: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS', 'AES-256'],
-    category: ['Web'],
-    icon: '📋',
-    featured: true,
+    desc: 'Multi-role PHP web app with AES-256-CBC encryption, anonymous reactions, and role-based workflows.',
+    tags: ['PHP', 'MySQL', 'JavaScript', 'AES-256'],
+    icon: '📋', featured: true,
   },
   {
     title: 'Weather Station Dashboard',
-    desc: 'Real-time temperature and humidity monitoring dashboard powered by a DHT11 sensor on ESP32 and Firebase. Includes live charts, historical data, and export capabilities.',
-    tags: ['ESP32', 'Firebase', 'Chart.js', 'JavaScript', 'DHT11'],
-    category: ['IoT', 'Web'],
+    desc: 'Real-time temperature and humidity monitoring powered by DHT11 on ESP32 and Firebase, with live charts.',
+    tags: ['ESP32', 'Firebase', 'Chart.js', 'DHT11'],
     icon: '🌡️',
   },
   {
     title: 'Line-Following Robotic Car',
-    desc: 'Autonomous Arduino Uno robot that follows a line track and avoids obstacles using IR sensors, an HC-SR04 ultrasonic sensor, and motor control logic.',
-    tags: ['Arduino', 'C++', 'HC-SR04', 'L298N', 'IR Sensors'],
-    category: ['IoT'],
+    desc: 'Autonomous Arduino Uno robot that follows a line and avoids obstacles using IR and HC-SR04 sensors.',
+    tags: ['Arduino', 'C++', 'HC-SR04', 'L298N'],
     icon: '🤖',
   },
   {
     title: 'Multiple LED Control Dashboard',
-    desc: 'Firebase-powered UI that allows remote real-time control of multiple LEDs through an ESP32 hardware setup and live dashboard status feedback.',
+    desc: 'Firebase-powered UI for remote real-time control of multiple LEDs via an ESP32 hardware setup.',
     tags: ['ESP32', 'Firebase', 'JavaScript', 'HTML/CSS'],
-    category: ['IoT', 'Web'],
     icon: '💡',
   },
   {
     title: 'Orbital Sentinel',
-    desc: 'A crisis-monitoring web dashboard using Leaflet.js to display world events such as conflict zones, typhoon data, earthquake reports, and operational alerts.',
-    tags: ['Leaflet.js', 'JavaScript', 'HTML/CSS', 'Geolocation'],
-    category: ['Web'],
-    icon: '🛰️',
-    featured: true,
+    desc: 'Crisis-monitoring web dashboard using Leaflet.js to display conflict zones, typhoon data, and earthquake alerts.',
+    tags: ['Leaflet.js', 'JavaScript', 'Geolocation'],
+    icon: '🛰️', featured: true,
   },
   {
     title: 'Pineapple Heritage Hotel Booking',
-    desc: 'A Java booking and reservation platform with database-backed room management, customer records, booking workflows, and administrative controls.',
+    desc: 'Java booking platform with database-backed room management, customer records, and admin controls.',
     tags: ['Java', 'MySQL', 'JDBC', 'Swing'],
-    category: ['Java'],
     icon: '🍍',
   },
 ]
 
-const filters: Category[] = ['All', 'Web', 'IoT', 'Java']
+const certs = [
+  { title: 'Web Development Fundamentals', issuer: 'Sample Platform', date: '2024', icon: '🌐', color: '#2f6bff' },
+  { title: 'IoT & Embedded Systems',        issuer: 'Sample Platform', date: '2024', icon: '🔌', color: '#22c55e' },
+  { title: 'Database Management',            issuer: 'Sample Platform', date: '2024', icon: '🗄️', color: '#0ea5e9' },
+  { title: 'JavaScript Advanced',            issuer: 'Sample Platform', date: '2025', icon: '⚡', color: '#f59e0b' },
+  { title: 'React & TypeScript',             issuer: 'Sample Platform', date: '2025', icon: '⚛️', color: '#8b5cf6' },
+  { title: 'Cloud & Firebase',               issuer: 'Sample Platform', date: '2025', icon: '☁️', color: '#10b981' },
+]
+
+const techStack = [
+  { name: 'React',       icon: '⚛️' },
+  { name: 'TypeScript',  icon: '🔷' },
+  { name: 'JavaScript',  icon: '⚡' },
+  { name: 'HTML5',       icon: '🏗️' },
+  { name: 'CSS3',        icon: '🎨' },
+  { name: 'PHP',         icon: '🐘' },
+  { name: 'MySQL',       icon: '🗄️' },
+  { name: 'Firebase',    icon: '🔥' },
+  { name: 'Arduino',     icon: '🔌' },
+  { name: 'ESP32',       icon: '📡' },
+  { name: 'Git',         icon: '🌿' },
+  { name: 'GitHub',      icon: '🐙' },
+  { name: 'Vite',        icon: '⚡' },
+]
 
 export default function Projects() {
-  const [active, setActive] = useState<Category>('All')
-  const ref = useScrollReveal()
-
-  const filtered = active === 'All' ? projects : projects.filter((p) => p.category.includes(active))
+  const [tab, setTab] = useState<Tab>('Projects')
 
   return (
-    <main className="section projects-page" ref={ref}>
-      <h2 className="section-title fade-in">Featured Projects</h2>
-      <p className="section-subtitle fade-in">Selected work across software, web, and connected systems</p>
-      <div className="section-divider fade-in" />
+    <div className="portfolio-wrap section-wrap section-pad">
+      <p className="sec-label reveal">My Work</p>
+      <h2 className="sec-title reveal">Portfolio</h2>
+      <div className="sec-rule reveal" />
 
-      <div className="filter-row fade-in">
-        {filters.map((f) => (
-          <button key={f} className={`filter-btn ${active === f ? 'active' : ''}`} onClick={() => setActive(f)}>
-            {f === 'All' ? 'All' : f}
+      {/* Tab switcher */}
+      <div className="port-tabs reveal">
+        {TABS.map((t) => (
+          <button
+            key={t}
+            className={`port-tab ${tab === t ? 'active' : ''}`}
+            onClick={() => setTab(t)}
+          >
+            {t}
           </button>
         ))}
       </div>
 
-      <div className="projects-grid">
-        {filtered.map((p) => (
-          <article key={p.title} className={`project-card ${p.featured ? 'featured' : ''}`}>
-            {p.featured && <div className="featured-badge">Featured</div>}
-            <div className="project-header">
-              <span className="project-icon">{p.icon}</span>
-              <h3 className="project-title">{p.title}</h3>
-            </div>
+      {/* Projects */}
+      {tab === 'Projects' && (
+        <div className="port-grid">
+          {projects.map((p) => (
+            <article key={p.title} className={`glass port-card ${p.featured ? 'featured' : ''}`}>
+              {p.featured && <div className="port-badge">Featured</div>}
+              <div className="port-card-header">
+                <span className="port-icon">{p.icon}</span>
+                <h3 className="port-title">{p.title}</h3>
+              </div>
+              <p className="port-desc">{p.desc}</p>
+              <div className="port-tags">
+                {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+              </div>
+              <div className="port-card-footer">
+                <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="btn-outline port-btn">
+                  Details
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
 
-            <p className="project-desc">{p.desc}</p>
+      {/* Certificates */}
+      {tab === 'Certificates' && (
+        <div className="port-grid">
+          {certs.map((c, i) => (
+            <article key={i} className="glass port-card cert-card" style={{ '--cc': c.color } as React.CSSProperties}>
+              <div className="cert-top-bar" />
+              <div className="cert-img-block">
+                <span className="cert-big-icon">{c.icon}</span>
+                <span className="cert-img-title">{c.title}</span>
+                <span className="cert-img-sub">{c.issuer} · {c.date}</span>
+              </div>
+              <div className="cert-body">
+                <h3 className="port-title">{c.title}</h3>
+                <p className="port-desc" style={{ marginTop: '0.4rem' }}>{c.issuer} · {c.date}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
 
-            <div className="project-tags">
-              {p.tags.map((t) => (
-                <span key={t} className="tag">{t}</span>
-              ))}
-            </div>
+      {/* Achievements — hidden if empty */}
+      {tab === 'Achievements' && (
+        <div className="port-empty glass">
+          <span className="port-empty-icon">🏆</span>
+          <p>Achievements will appear here once added.</p>
+        </div>
+      )}
 
-            <div className="project-footer">
-              <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="btn-secondary project-btn">
-                View on GitHub
-              </a>
+      {/* Tech Stack */}
+      {tab === 'Tech Stack' && (
+        <div className="tech-grid">
+          {techStack.map((t) => (
+            <div key={t.name} className="glass tech-tile">
+              <span className="tech-icon">{t.icon}</span>
+              <span className="tech-name">{t.name}</span>
             </div>
-          </article>
-        ))}
-      </div>
-    </main>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }

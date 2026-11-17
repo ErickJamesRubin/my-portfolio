@@ -1,20 +1,14 @@
-import { Link } from 'react-router-dom'
 import './Footer.css'
 
 export default function Footer() {
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+
   return (
     <footer className="footer">
-      <div className="footer-inner">
-        <section className="footer-cta-row">
-          <div>
-            <div className="footer-callout">Let’s turn an idea into a useful product.</div>
-          </div>
-          <Link to="/contact" className="btn-primary footer-button">
-            Let’s Connect
-          </Link>
-        </section>
-
-        <div className="footer-main">
+      <div className="footer-inner section-wrap">
+        {/* Top row */}
+        <div className="footer-top">
+          {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">EJR</div>
             <div>
@@ -23,34 +17,41 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="footer-nav">
+          {/* Navigation column */}
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <div className="footer-nav-head">Navigation</div>
             {[
-              { to: '/', label: 'Home' },
-              { to: '/about', label: 'About' },
-              { to: '/skills', label: 'Skills' },
-              { to: '/projects', label: 'Projects' },
-              { to: '/certifications', label: 'Certifications' },
-              { to: '/resume', label: 'Resume' },
-              { to: '/contact', label: 'Contact' },
+              { href: '#home',      label: 'Home' },
+              { href: '#about',     label: 'About' },
+              { href: '#portfolio', label: 'Portfolio' },
+              { href: '#contact',   label: 'Contact' },
             ].map((l) => (
-              <Link key={l.to} to={l.to} className="footer-link">
+              <a
+                key={l.href}
+                href={l.href}
+                className="footer-link"
+                onClick={(e) => { e.preventDefault(); document.getElementById(l.href.slice(1))?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
                 {l.label}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
 
-        <div className="footer-quote">
-          <span className="quote-mark">“</span>
-          Build with clarity. Ship with intent.
-          <span className="quote-mark">”</span>
+        {/* Social row */}
+        <div className="footer-socials">
+          <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="footer-social">
+            🐙 GitHub
+          </a>
+          <a href="mailto:your.email@example.com" className="footer-social">
+            ✉️ Email
+          </a>
         </div>
 
+        {/* Bottom */}
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Erick James Rubin · All rights reserved</span>
-          <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="footer-github">
-            github.com/ErickJamesRubin
-          </a>
+          <button className="footer-top-btn" onClick={scrollTop}>↑ Back to top</button>
         </div>
       </div>
     </footer>

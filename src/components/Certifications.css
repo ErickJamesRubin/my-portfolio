@@ -1,10 +1,12 @@
+/* ── Certifications — no longer used as a separate page; kept for compatibility ── */
+
 .certs-notice {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
+  border-radius: 16px;
+  border: 1px solid rgba(88, 166, 255, 0.14);
+  background: rgba(10, 20, 40, 0.5);
   padding: 0.96rem 1rem;
   color: var(--text-secondary);
   margin-bottom: 2rem;
@@ -13,124 +15,4 @@
 .notice-icon {
   color: var(--accent);
   font-size: 1rem;
-}
-
-.certs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.cert-card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  position: relative;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cert-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--cert-color, var(--accent));
-  box-shadow: var(--shadow-card);
-}
-
-.cert-color-rule {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--cert-color, var(--accent));
-}
-
-.cert-image-placeholder {
-  min-height: 150px;
-  margin: 1rem;
-  border-radius: var(--radius);
-  border: 1px dashed var(--border-color);
-  background: var(--bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cert-image-inner {
-  text-align: center;
-}
-
-.cert-img-icon {
-  display: block;
-  font-size: 2rem;
-  color: var(--accent);
-}
-
-.cert-img-label {
-  display: block;
-  margin-top: 0.5rem;
-  font-weight: 700;
-  font-size: 0.68rem;
-  font-family: 'Fira Code', monospace;
-  color: var(--text-secondary);
-}
-
-.cert-img-hint {
-  display: block;
-  margin-top: 0.25rem;
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-.cert-info {
-  padding: 1rem 1rem 1.4rem;
-}
-
-.cert-title {
-  font-size: 0.98rem;
-  color: var(--text-heading);
-  margin-bottom: 0.7rem;
-}
-
-.cert-meta {
-  display: flex;
-  gap: 0.6rem;
-  flex-direction: column;
-  margin-bottom: 0.75rem;
-}
-
-.cert-issuer,
-.cert-date {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.66rem;
-  color: var(--text-secondary);
-}
-
-.cert-desc {
-  font-size: 0.82rem;
-  line-height: 1.62;
-  color: var(--text-secondary);
-}
-
-.cert-corner {
-  position: absolute;
-  font-size: 0.7rem;
-  color: var(--cert-color, var(--accent));
-  opacity: 0.9;
-}
-
-.cert-corner-tl {
-  top: 12px;
-  left: 12px;
-}
-
-.cert-corner-br {
-  right: 12px;
-  bottom: 12px;
-}
-
-@media (max-width: 700px) {
-  .certs-grid {
-    grid-template-columns: 1fr;
-  }
 }

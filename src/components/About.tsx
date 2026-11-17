@@ -1,95 +1,123 @@
-import { useScrollReveal } from './useScrollReveal'
-import './About.css'
 import profileImg from '../assets/profile-new.jpg'
-
-const facts = [
-  { icon: '🎓', label: 'Education', value: 'BSIT — NBSC, Bukidnon' },
-  { icon: '📍', label: 'Location', value: 'Manolo Fortich, Philippines' },
-  { icon: '🎯', label: 'Focus', value: 'Full-Stack & IoT Systems' },
-  { icon: '☰', label: 'GitHub', value: 'ErickJamesRubin' },
-]
+import './About.css'
 
 export default function About() {
-  const ref = useScrollReveal()
-
   return (
-    <main className="section about-page" ref={ref}>
-      <h2 className="section-title fade-in">About Me</h2>
-      <p className="section-subtitle fade-in">Building systems, learning continuously, shipping ideas</p>
-      <div className="section-divider fade-in" />
+    <div className="about-wrap section-wrap section-pad">
+      {/* Header */}
+      <p className="sec-label reveal">About Me</p>
+      <h2 className="sec-title reveal">Know Who I Am</h2>
+      <div className="sec-rule reveal" />
 
-      <div className="about-grid">
-        <div className="about-portrait fade-in">
-          <div className="portrait-frame">
-            <div className="portrait-inner">
-              <img src={profileImg} alt="Erick James Rubin" className="about-profile-photo" />
-            </div>
-            <div className="portrait-label">Erick James Rubin</div>
+      {/* Two-column hero */}
+      <div className="about-hero reveal">
+        {/* Left: greeting + name + bio */}
+        <div className="about-left">
+          <p className="about-hi">Hi, I'm</p>
+          <h3 className="about-name">Erick James <span className="about-name-blue">Rubin</span></h3>
+          <p className="about-role-line">Full-Stack Developer &amp; IoT Engineer</p>
+          <p className="about-bio">
+            I'm a BSIT student at <strong>Northern Bukidnon State College</strong> focused on building
+            practical software and connected system experiences.
+          </p>
+          <p className="about-bio">
+            My work spans <strong>React &amp; TypeScript interfaces</strong>, <strong>PHP &amp; MySQL solutions</strong>,
+            and <strong>ESP32 / Arduino IoT projects</strong>. I approach development with a product mindset:
+            clarify the problem, design the flow, implement the interface, and keep the system maintainable.
+          </p>
+          <p className="about-bio">
+            Outside coursework, I build projects that combine real-time data, dashboards, hardware integration,
+            and user-centered design.
+          </p>
+          <a href="#contact" className="btn-blue about-cta" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}>
+            Contact Me
+          </a>
+        </div>
+
+        {/* Center: photo */}
+        <div className="about-photo-col">
+          <div className="about-photo-glow" />
+          <div className="about-photo-ring">
+            <img src={profileImg} alt="Erick James Rubin" className="about-photo" />
           </div>
+        </div>
 
-          <div className="facts-grid">
-            {facts.map((f) => (
-              <div key={f.label} className="fact-item">
-                <span className="fact-icon">{f.icon}</span>
+        {/* Right: details + view projects */}
+        <div className="about-right">
+          <div className="about-detail-quote glass">
+            "I turn technical requirements into polished interfaces and reliable solutions."
+          </div>
+          <div className="about-detail-list">
+            {[
+              { icon: '🎓', label: 'Education', value: 'BSIT — NBSC, Bukidnon' },
+              { icon: '📍', label: 'Location', value: 'Manolo Fortich, Philippines' },
+              { icon: '🎯', label: 'Focus', value: 'Full-Stack & IoT Systems' },
+              { icon: '🐙', label: 'GitHub', value: 'ErickJamesRubin' },
+            ].map((d) => (
+              <div key={d.label} className="about-detail-row">
+                <span className="about-detail-icon">{d.icon}</span>
                 <div>
-                  <div className="fact-label">{f.label}</div>
-                  <div className="fact-value">{f.value}</div>
+                  <div className="about-detail-label">{d.label}</div>
+                  <div className="about-detail-val">{d.value}</div>
                 </div>
               </div>
             ))}
           </div>
+          <a href="#portfolio" className="btn-outline about-cta" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' }) }}>
+            View Projects
+          </a>
+        </div>
+      </div>
+
+      {/* Education + Experience cards */}
+      <div className="about-cards-row">
+        <div className="glass about-glass-card reveal">
+          <div className="about-card-icon">🎓</div>
+          <h4 className="about-card-heading">Education</h4>
+          <div className="about-card-rule" />
+          <div className="about-card-item">
+            <div className="about-card-label">Bachelor of Science in Information Technology</div>
+            <div className="about-card-sub">Northern Bukidnon State College · Manolo Fortich</div>
+            <div className="about-card-meta">2022 – Present · BSIT</div>
+          </div>
+          <div className="about-card-item">
+            <div className="about-card-label">Senior High School — ICT Strand</div>
+            <div className="about-card-sub">Northern Bukidnon State College</div>
+            <div className="about-card-meta">Completed</div>
+          </div>
         </div>
 
-        <div className="about-bio fade-in">
-          <article className="bio-card">
-            <h3 className="bio-heading">Developer Snapshot</h3>
-            <div className="section-rule" />
-            <p>
-              I’m <strong>Erick James Rubin</strong>, a BSIT student at <strong>Northern Bukidnon State College</strong>
-              focused on building practical software and connected system experiences.
-            </p>
-            <p>
-              My work spans <strong>React and TypeScript interfaces</strong>, <strong>PHP and MySQL solutions</strong>,
-              and <strong>ESP32 / Arduino based IoT projects</strong>. I approach development with a product mindset:
-              clarify the problem, design the flow, implement the interface, and keep the system maintainable.
-            </p>
-            <p>
-              Outside coursework, I work on projects that combine real-time data, dashboards, hardware integration,
-              and user-centered design. I’m especially interested in learning the systems that sit between users,
-              APIs, data, and connected devices.
-            </p>
-
-            <div className="bio-highlight">
-              <span className="highlight-quote">
-                “I turn technical requirements into polished interfaces and reliable solutions.”
-              </span>
-            </div>
-
-            <div className="bio-links">
-              <a href="https://github.com/ErickJamesRubin" target="_blank" rel="noreferrer" className="btn-secondary">
-                GitHub Profile
-              </a>
-            </div>
-          </article>
-
-          <div className="interest-cloud fade-in">
-            {[
-              'Full-Stack Development',
-              'IoT Systems',
-              'Arduino & ESP32',
-              'Firebase',
-              'React',
-              'PHP & MySQL',
-              'Robotics',
-              'GitHub',
-              'Embedded Systems',
-              'UI/UX Design',
-            ].map((t) => (
-              <span key={t} className="tag">{t}</span>
-            ))}
+        <div className="glass about-glass-card reveal">
+          <div className="about-card-icon">💼</div>
+          <h4 className="about-card-heading">Experience</h4>
+          <div className="about-card-rule" />
+          <div className="about-card-item">
+            <div className="about-card-label">Capstone Researcher &amp; Developer</div>
+            <div className="about-card-sub">H₂KNOW IoT Water Monitoring System</div>
+            <div className="about-card-meta">2024 – Present · Full-Stack + Hardware</div>
+          </div>
+          <div className="about-card-item">
+            <div className="about-card-label">Freelance / Personal Projects</div>
+            <div className="about-card-sub">Web Apps, IoT Dashboards, Robotics</div>
+            <div className="about-card-meta">2022 – Present · Self-Directed</div>
           </div>
         </div>
       </div>
-    </main>
+
+      {/* Stat cards */}
+      <div className="about-stats-row">
+        {[
+          { icon: '🗂️', value: '8+', label: 'Projects' },
+          { icon: '🏅', value: '6+', label: 'Certificates' },
+          { icon: '🏆', value: '1+',  label: 'Awards' },
+        ].map((s) => (
+          <div key={s.label} className="glass about-stat reveal">
+            <span className="about-stat-icon">{s.icon}</span>
+            <span className="about-stat-val">{s.value}</span>
+            <span className="about-stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
