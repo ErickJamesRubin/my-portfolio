@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '../assets/profile-new.jpg'
 import './Home.css'
 
 export default function Home() {

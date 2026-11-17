@@ -15,6 +15,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'H₂KNOW: Design and Development of an IoT-Enabled Wireless Sensor Network-Based River Catchment Water Monitoring and Analytics System',
+    desc: 'Capstone project that monitors river water quality using IoT wireless sensors and presents the data through an analytics dashboard.',
+    tags: ['IoT', 'Wireless Sensor Network', 'Water Monitoring', 'Analytics'],
+    category: ['IoT', 'Web'],
+    icon: '💧',
+    featured: true,
+  },
+  {
     title: 'Traffic Light Dashboard',
     desc: 'Web-based dashboard to simulate and control traffic light sequences in real time using ESP32 and Firebase Realtime Database. Features live state syncing and responsive controls.',
     tags: ['ESP32', 'Firebase', 'JavaScript', 'HTML/CSS'],
